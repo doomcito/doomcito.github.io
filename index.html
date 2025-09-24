@@ -1,3 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Doomcito - Cómo hacer un discurso y una exposición académica</title>
+    <style>
+        /* Reset y estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #374151;
+            background-color: #f9fafb;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        /* Header para el título del blog */
+        header {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: #4f46e5;
+            color: white;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 0;
+        }
+        .site-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .site-subtitle {
+            font-size: 1.125rem;
+            margin-top: 0.5rem;
+            color: white; /* Blanco puro */
+            max-width: 100%;
+            padding: 0 1rem;
+            line-height: 1.4;
+        }
+        /* Main content */
+        main {
+            padding: 32px;
+            background-color: white;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        article {
+            max-width: none;
+            font-size: 1.125rem;
+            line-height: 1.75;
+        }
+        h2 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+        }
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #4338ca;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+        }
+        ul {
+            list-style-type: disc;
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        li {
+            color: #4b5563;
+            margin-bottom: 0.5rem;
+        }
+        strong {
+            color: #1f2937;
+        }
+        /* Contact Section */
+        .contact-section {
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background: linear-gradient(to right, #eff6ff, #e0e7ff);
+            border-radius: 0.5rem;
+            border: 1px solid #c7d2fe;
+        }
+        .contact-section h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #4338ca;
+            margin-bottom: 1rem;
+        }
+        .contact-section p {
+            margin-bottom: 1rem;
+        }
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background-color: #4f46e5;
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: background-color 0.2s;
+        }
+        .contact-link:hover {
+            background-color: #3730a3;
+        }
+        .contact-link svg {
+            height: 1.25rem;
+            width: 1.25rem;
+            margin-right: 0.5rem;
+        }
+        /* Comments Section */
+        .comments-section {
+            margin-top: 3rem;
+        }
+        .comments-section h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+        }
+        .comment-form {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background-color: #f9fafb;
+            border-radius: 0.5rem;
+            border: 1px solid #e5e7eb;
+        }
+        .comment-form h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+        .comment-form label {
+            display: block;
+            color: #4b5563;
+            margin-bottom: 0.5rem;
+        }
+        .comment-form input,
+        .comment-form textarea {
+            width: 100%;
+            padding: 0.5rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .comment-form input:focus,
+        .comment-form textarea:focus {
+            border-color: #a5b4fc;
+            box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+        }
+        .comment-form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .comment-form button {
+            padding: 0.5rem 1.5rem;
+            background-color: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .comment-form button:hover {
+            background-color: #3730a3;
+        }
+        .comments-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .no-comments {
+            color: #6b7280;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        .comment-item {
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 0.5rem;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+        .comment-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+        .comment-author {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #4338ca;
+        }
+        .comment-date {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        .comment-content {
+            color: #4b5563;
+        }
+        /* Footer */
+        footer {
+            background-color: #1f2937;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        footer a {
+            color: #a5b4fc;
+            text-decoration: underline;
+            transition: color 0.2s;
+        }
+        footer a:hover {
+            color: #c7d2fe;
+        }
+        /* Responsivo */
+        @media (max-width: 768px) {
+            main {
+                padding: 16px;
+            }
+            .container {
+                padding: 10px;
+            }
+            .site-title {
+                font-size: 2rem;
+            }
+            .site-subtitle {
+                font-size: 1rem;
+                padding: 0 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header con el título del blog -->
+        <header>
+            <h1 class="site-title">Blog de Doomcito</h1>
+            <p class="site-subtitle">EN UN MUNDO DE RUIDO MEDIÁTICO, "LA VOZ DE NADIE" DA VOZ A LOS SIN NOMBRE, AQUELLOS CUYAS HISTORIAS IMPORTAN PERO QUEDAN IGNORADAS.</p>
+        </header>
+        
+        <main class="p-8">
+            <article class="prose prose-lg max-w-none">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">Cómo hacer un discurso y una exposición académica</h2>
+                
+                <p class="text-gray-700 mb-6">
+                    Hablar frente a un público siempre impone. Pero si sabes cómo organizar tus ideas y entiendes la estructura de un discurso o una exposición académica, todo fluye mucho mejor. En las siguientes líneas te comparto lo esencial que aprendí (sí, lo mismo que aparece en mis apuntes 📖, pero explicado a mi manera).
+                </p>
+                
+                <h3 class="text-2xl font-semibold text-indigo-700 mt-8 mb-4">¿Qué es un discurso?</h3>
+                <p class="text-gray-700 mb-6">
+                    El discurso es un texto preparado con anticipación para transmitir un mensaje claro y con un objetivo definido: informar, persuadir, entretener o conmover. Puede ser oral o escrito, y usa el lenguaje como puente entre el emisor (quien habla) y el receptor (quien escucha).
+                </p>
+                
+                <h3 class="text-2xl font-semibold text-indigo-700 mt-8 mb-4">Clases de discurso</h3>
+                <p class="text-gray-700 mb-4">Dependiendo de su forma y propósito, un discurso puede ser:</p>
+                <ul class="list-disc list-inside text-gray-700 mb-6 pl-4">
+                    <li>Narrativo, descriptivo, expositivo o argumentativo (según su estructura).</li>
+                    <li>Político, religioso, publicitario, empresarial, académico, artístico, etc. (según el tema).</li>
+                    <li>Oral o escrito (según el canal).</li>
+                    <li>Informativo, expresivo o persuasivo (según la función del lenguaje).</li>
+                    <li>Formal o informal (según el estilo).</li>
+                </ul>
+                
+                <h3 class="text-2xl font-semibold text-indigo-700 mt-8 mb-4">Elementos del discurso</h3>
+                <p class="text-gray-700 mb-4">Para que un discurso funcione, no basta con hablar por hablar. Estos son sus elementos clave:</p>
+                <ul class="list-disc list-inside text-gray-700 mb-6 pl-4">
+                    <li><strong>Emisor:</strong> la persona que transmite el mensaje.</li>
+                    <li><strong>Receptor:</strong> el público o audiencia.</li>
+                    <li><strong>Mensaje:</strong> el contenido, que debe ser claro, coherente y relevante.</li>
+                    <li><strong>Código:</strong> el lenguaje (puede ser verbal, no verbal o una mezcla).</li>
+                    <li><strong>Canal:</strong> el medio por el que se transmite (oral, escrito, visual).</li>
+                    <li><strong>Contexto:</strong> las circunstancias y el entorno en el que se produce.</li>
+                    <li><strong>Propósito:</strong> la intención del discurso (informar, persuadir, entretener…).</li>
+                </ul>
+                
+                <h3 class="text-2xl font-semibold text-indigo-700 mt-8 mb-4">Partes del discurso</h3>
+                <p class="text-gray-700 mb-4">Todo discurso tiene una estructura básica que ayuda a no perderse:</p>
+                <ul class="list-disc list-inside text-gray-700 mb-6 pl-4">
+                    <li><strong>Preámbulo o exordio:</strong> la presentación inicial para captar la atención del público.</li>
+                    <li><strong>Proposición:</strong> el tema o motivo del discurso, explicado de manera breve y clara.</li>
+                    <li><strong>Exposición o narración:</strong> desarrollo ordenado de las ideas principales.</li>
+                    <li><strong>Confirmación:</strong> se refuerza con argumentos y pruebas válidas.</li>
+                    <li><strong>Peroración o epílogo:</strong> cierre con un resumen, conclusión y recomendaciones.</li>
+                </ul>
+                
+                <h3 class="text-2xl font-semibold text-indigo-700 mt-8 mb-4">La exposición académica</h3>
+                <p class="text-gray-700 mb-6">
+                    Ahora bien, en el ámbito escolar o universitario lo que más usamos es la exposición académica. Esta consiste en presentar un tema de forma clara, estructurada y con un objetivo específico: informar a un público determinado.
+                </p>
+                <p class="text-gray-700 mb-6">
+                    Además de transmitir conocimientos, la exposición académica sirve para demostrar comprensión del tema y capacidad de síntesis.
+                </p>
+                
+                <h3 class="text-2xl font-semibold text-indigo-700 mt-8 mb-4">Técnicas para una buena exposición académica</h3>
+                <ul class="list-disc list-inside text-gray-700 mb-6 pl-4">
+                    <li><strong>Selección del tema:</strong> elige algo que te apasione.</li>
+                    <li><strong>Adaptación del contenido:</strong> ajusta la información a la edad e intereses de tu público.</li>
+                    <li><strong>Investigación:</strong> busca datos confiables y relevantes.</li>
+                    <li><strong>Organización de la información:</strong> prioriza lo más importante.</li>
+                    <li><strong>Creación del guion:</strong> estructura tu exposición de manera lógica, de lo simple a lo complejo.</li>
+                    <li><strong>Desarrollo del estilo:</strong> cuida la entonación, los gestos, la postura corporal y el contacto con el público.</li>
+                </ul>
+                
+                <h3 class="text-2xl font-semibold text-indigo-700 mt-8 mb-4">Estructura de la exposición académica</h3>
+                <p class="text-gray-700 mb-4">La exposición se divide en tres momentos:</p>
+                <ul class="list-disc list-inside text-gray-700 mb-6 pl-4">
+                    <li><strong>Introducción:</strong> se presenta el tema e intenta captar la atención (¿qué es? ¿por qué es importante?).</li>
+                    <li><strong>Desarrollo:</strong> se organiza la información: antecedentes, argumentos, análisis crítico y ejemplos.</li>
+                    <li><strong>Cierre:</strong> balance final de lo expuesto, con un resumen, conclusión, reflexiones y agradecimientos.</li>
+                </ul>
+            </article>
+            
+            <!-- Contact Section -->
+            <div class="contact-section">
+                <h3 class="text-xl font-semibold text-indigo-700 mb-4">Contacto</h3>
+                <p class="text-gray-700 mb-4">¿Quieres ponerte en contacto? Sígueme en X (Twitter):</p>
+                <a 
+                    href="https://x.com/alejandrxo_fe?t=X9Zc6AI7fpQ3Ew_7ToTpCA&s=09" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="contact-link"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                    @alejandrxo_fe
+                </a>
+            </div>
+            
+            <!-- Comments Section -->
+            <div class="comments-section">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">Comentarios</h3>
+                
+                <!-- Comment Form (estático por simplicidad; en React sería dinámico) -->
+                <form class="comment-form">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-4">Deja tu comentario</h4>
+                    <div class="mb-4">
+                        <label for="author" class="block text-gray-700 mb-2">Nombre</label>
+                        <input
+                            type="text"
+                            id="author"
+                            name="author"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                            placeholder="Tu nombre"
+                            required
+                        />
+                    </div>
                     <div class="mb-4">
                         <label for="content" class="block text-gray-700 mb-2">Comentario</label>
                         <textarea
