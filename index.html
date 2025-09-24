@@ -1,213 +1,166 @@
-import React, { useState } from 'react';
-
-const BlogPage = () => {
-  const [comments, setComments] = useState([]); // Lista de comentarios vacía inicialmente
-  
-  const [newComment, setNewComment] = useState({
-    author: "",
-    content: ""
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setNewComment(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmitComment = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (newComment.author.trim() && newComment.content.trim()) {
-      const comment = {
-        id: comments.length + 1,
-        author: newComment.author,
-        content: newComment.content,
-        date: new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })
-      };
+<main className="p-8">
+      <article className="prose prose-lg max-w-none">
+        <h2 className="text-3xl font-bold text-gray-800 mb-6">Cómo hacer un discurso y una exposición académica</h2>
+        
+        <p className="text-gray-700 mb-6">
+          Hablar frente a un público siempre impone. Pero si sabes cómo organizar tus ideas y entiendes la estructura de un discurso o una exposición académica, todo fluye mucho mejor. En las siguientes líneas te comparto lo esencial que aprendí (sí, lo mismo que aparece en mis apuntes 📖, pero explicado a mi manera).
+        </p>
+        
+        <h3 className="text-2xl font-semibold text-indigo-700 mt-8 mb-4">¿Qué es un discurso?</h3>
+        <p className="text-gray-700 mb-6">
+          El discurso es un texto preparado con anticipación para transmitir un mensaje claro y con un objetivo definido: informar, persuadir, entretener o conmover. Puede ser oral o escrito, y usa el lenguaje como puente entre el emisor (quien habla) y el receptor (quien escucha).
+        </p>
+        
+        <h3 className="text-2xl font-semibold text-indigo-700 mt-8 mb-4">Clases de discurso</h3>
+        <p className="text-gray-700 mb-4">Dependiendo de su forma y propósito, un discurso puede ser:</p>
+        <ul className="list-disc list-inside text-gray-700 mb-6 pl-4">
+          <li>Narrativo, descriptivo, expositivo o argumentativo (según su estructura).</li>
+          <li>Político, religioso, publicitario, empresarial, académico, artístico, etc. (según el tema).</li>
+          <li>Oral o escrito (según el canal).</li>
+          <li>Informativo, expresivo o persuasivo (según la función del lenguaje).</li>
+          <li>Formal o informal (según el estilo).</li>
+        </ul>
+        
+        <h3 className="text-2xl font-semibold text-indigo-700 mt-8 mb-4">Elementos del discurso</h3>
+        <p className="text-gray-700 mb-4">Para que un discurso funcione, no basta con hablar por hablar. Estos son sus elementos clave:</p>
+        <ul className="list-disc list-inside text-gray-700 mb-6 pl-4">
+          <li><strong>Emisor:</strong> la persona que transmite el mensaje.</li>
+          <li><strong>Receptor:</strong> el público o audiencia.</li>
+          <li><strong>Mensaje:</strong> el contenido, que debe ser claro, coherente y relevante.</li>
+          <li><strong>Código:</strong> el lenguaje (puede ser verbal, no verbal o una mezcla).</li>
+          <li><strong>Canal:</strong> el medio por el que se transmite (oral, escrito, visual).</li>
+          <li><strong>Contexto:</strong> las circunstancias y el entorno en el que se produce.</li>
+          <li><strong>Propósito:</strong> la intención del discurso (informar, persuadir, entretener…).</li>
+        </ul>
+        
+        <h3 className="text-2xl font-semibold text-indigo-700 mt-8 mb-4">Partes del discurso</h3>
+        <p className="text-gray-700 mb-4">Todo discurso tiene una estructura básica que ayuda a no perderse:</p>
+        <ul className="list-disc list-inside text-gray-700 mb-6 pl-4">
+          <li><strong>Preámbulo o exordio:</strong> la presentación inicial para captar la atención del público.</li>
+          <li><strong>Proposición:</strong> el tema o motivo del discurso, explicado de manera breve y clara.</li>
+          <li><strong>Exposición o narración:</strong> desarrollo ordenado de las ideas principales.</li>
+          <li><strong>Confirmación:</strong> se refuerza con argumentos y pruebas válidas.</li>
+          <li><strong>Peroración o epílogo:</strong> cierre con un resumen, conclusión y recomendaciones.</li>
+        </ul>
+        
+        <h3 className="text-2xl font-semibold text-indigo-700 mt-8 mb-4">La exposición académica</h3>
+        <p className="text-gray-700 mb-6">
+          Ahora bien, en el ámbito escolar o universitario lo que más usamos es la exposición académica. Esta consiste en presentar un tema de forma clara, estructurada y con un objetivo específico: informar a un público determinado.
+        </p>
+        <p className="text-gray-700 mb-6">
+          Además de transmitir conocimientos, la exposición académica sirve para demostrar comprensión del tema y capacidad de síntesis.
+        </p>
+        
+        <h3 className="text-2xl font-semibold text-indigo-700 mt-8 mb-4">Técnicas para una buena exposición académica</h3>
+        <ul className="list-disc list-inside text-gray-700 mb-6 pl-4">
+          <li><strong>Selección del tema:</strong> elige algo que te apasione.</li>
+          <li><strong>Adaptación del contenido:</strong> ajusta la información a la edad e intereses de tu público.</li>
+          <li><strong>Investigación:</strong> busca datos confiables y relevantes.</li>
+          <li><strong>Organización de la información:</strong> prioriza lo más importante.</li>
+          <li><strong>Creación del guion:</strong> estructura tu exposición de manera lógica, de lo simple a lo complejo.</li>
+          <li><strong>Desarrollo del estilo:</strong> cuida la entonación, los gestos, la postura corporal y el contacto con el público.</li>
+        </ul>
+        
+        <h3 className="text-2xl font-semibold text-indigo-700 mt-8 mb-4">Estructura de la exposición académica</h3>
+        <p className="text-gray-700 mb-4">La exposición se divide en tres momentos:</p>
+        <ul className="list-disc list-inside text-gray-700 mb-6 pl-4">
+          <li><strong>Introducción:</strong> se presenta el tema e intenta captar la atención (¿qué es? ¿por qué es importante?).</li>
+          <li><strong>Desarrollo:</strong> se organiza la información: antecedentes, argumentos, análisis crítico y ejemplos.</li>
+          <li><strong>Cierre:</strong> balance final de lo expuesto, con un resumen, conclusión, reflexiones y agradecimientos.</li>
+        </ul>
+      </article>
       
-      setComments([...comments, comment]);
-      setNewComment({ author: "", content: "" });
-    }
-  };
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4">
-      <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
-        {/* Header */}
-        <header className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-8 text-center">
-          <h1 className="text-4xl font-bold mb-2">Mi Blog Académico</h1>
-          <p className="text-lg opacity-90">Compartiendo conocimiento y experiencias</p>
-        </header>
-        
-        {/* Blog Content */}
-        <main className="p-8">
-          <article className="prose prose-lg max-w-none">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6">Cómo hacer un discurso y una exposición académica</h2>
-            
-            <p className="text-gray-700 mb-6">
-              Hablar frente a un público siempre impone. Pero si sabes cómo organizar tus ideas y entiendes la estructura de un discurso o una exposición académica, todo fluye mucho mejor. En las siguientes líneas te comparto lo esencial que aprendí (sí, lo mismo que aparece en mis apuntes 📖, pero explicado a mi manera).
-            </p>
-            
-            <h3 className="text-2xl font-semibold text-indigo-700 mt-8 mb-4">¿Qué es un discurso?</h3>
-            <p className="text-gray-700 mb-6">
-              El discurso es un texto preparado con anticipación para transmitir un mensaje claro y con un objetivo definido: informar, persuadir, entretener o conmover. Puede ser oral o escrito, y usa el lenguaje como puente entre el emisor (quien habla) y el receptor (quien escucha).
-            </p>
-            
-            <h3 className="text-2xl font-semibold text-indigo-700 mt-8 mb-4">Clases de discurso</h3>
-            <p className="text-gray-700 mb-4">Dependiendo de su forma y propósito, un discurso puede ser:</p>
-            <ul className="list-disc list-inside text-gray-700 mb-6 pl-4">
-              <li>Narrativo, descriptivo, expositivo o argumentativo (según su estructura).</li>
-              <li>Político, religioso, publicitario, empresarial, académico, artístico, etc. (según el tema).</li>
-              <li>Oral o escrito (según el canal).</li>
-              <li>Informativo, expresivo o persuasivo (según la función del lenguaje).</li>
-              <li>Formal o informal (según el estilo).</li>
-            </ul>
-            
-            <h3 className="text-2xl font-semibold text-indigo-700 mt-8 mb-4">Elementos del discurso</h3>
-            <p className="text-gray-700 mb-4">Para que un discurso funcione, no basta con hablar por hablar. Estos son sus elementos clave:</p>
-            <ul className="list-disc list-inside text-gray-700 mb-6 pl-4">
-              <li><strong>Emisor:</strong> la persona que transmite el mensaje.</li>
-              <li><strong>Receptor:</strong> el público o audiencia.</li>
-              <li><strong>Mensaje:</strong> el contenido, que debe ser claro, coherente y relevante.</li>
-              <li><strong>Código:</strong> el lenguaje (puede ser verbal, no verbal o una mezcla).</li>
-              <li><strong>Canal:</strong> el medio por el que se transmite (oral, escrito, visual).</li>
-              <li><strong>Contexto:</strong> las circunstancias y el entorno en el que se produce.</li>
-              <li><strong>Propósito:</strong> la intención del discurso (informar, persuadir, entretener…).</li>
-            </ul>
-            
-            <h3 className="text-2xl font-semibold text-indigo-700 mt-8 mb-4">Partes del discurso</h3>
-            <p className="text-gray-700 mb-4">Todo discurso tiene una estructura básica que ayuda a no perderse:</p>
-            <ul className="list-disc list-inside text-gray-700 mb-6 pl-4">
-              <li><strong>Preámbulo o exordio:</strong> la presentación inicial para captar la atención del público.</li>
-              <li><strong>Proposición:</strong> el tema o motivo del discurso, explicado de manera breve y clara.</li>
-              <li><strong>Exposición o narración:</strong> desarrollo ordenado de las ideas principales.</li>
-              <li><strong>Confirmación:</strong> se refuerza con argumentos y pruebas válidas.</li>
-              <li><strong>Peroración o epílogo:</strong> cierre con un resumen, conclusión y recomendaciones.</li>
-            </ul>
-            
-            <h3 className="text-2xl font-semibold text-indigo-700 mt-8 mb-4">La exposición académica</h3>
-            <p className="text-gray-700 mb-6">
-              Ahora bien, en el ámbito escolar o universitario lo que más usamos es la exposición académica. Esta consiste en presentar un tema de forma clara, estructurada y con un objetivo específico: informar a un público determinado.
-            </p>
-            <p className="text-gray-700 mb-6">
-              Además de transmitir conocimientos, la exposición académica sirve para demostrar comprensión del tema y capacidad de síntesis.
-            </p>
-            
-            <h3 className="text-2xl font-semibold text-indigo-700 mt-8 mb-4">Técnicas para una buena exposición académica</h3>
-            <ul className="list-disc list-inside text-gray-700 mb-6 pl-4">
-              <li><strong>Selección del tema:</strong> elige algo que te apasione.</li>
-              <li><strong>Adaptación del contenido:</strong> ajusta la información a la edad e intereses de tu público.</li>
-              <li><strong>Investigación:</strong> busca datos confiables y relevantes.</li>
-              <li><strong>Organización de la información:</strong> prioriza lo más importante.</li>
-              <li><strong>Creación del guion:</strong> estructura tu exposición de manera lógica, de lo simple a lo complejo.</li>
-              <li><strong>Desarrollo del estilo:</strong> cuida la entonación, los gestos, la postura corporal y el contacto con el público.</li>
-            </ul>
-            
-            <h3 className="text-2xl font-semibold text-indigo-700 mt-8 mb-4">Estructura de la exposición académica</h3>
-            <p className="text-gray-700 mb-4">La exposición se divide en tres momentos:</p>
-            <ul className="list-disc list-inside text-gray-700 mb-6 pl-4">
-              <li><strong>Introducción:</strong> se presenta el tema e intenta captar la atención (¿qué es? ¿por qué es importante?).</li>
-              <li><strong>Desarrollo:</strong> se organiza la información: antecedentes, argumentos, análisis crítico y ejemplos.</li>
-              <li><strong>Cierre:</strong> balance final de lo expuesto, con un resumen, conclusión, reflexiones y agradecimientos.</li>
-            </ul>
-          </article>
-          
-          {/* Contact Section */}
-          <div className="mt-12 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-indigo-200">
-            <h3 className="text-xl font-semibold text-indigo-700 mb-4">Contacto</h3>
-            <p className="text-gray-700 mb-4">¿Quieres ponerte en contacto? Sígueme en X (Twitter):</p>
-            <a 
-              href="https://x.com/alejandrxo_fe?t=X9Zc6AI7fpQ3Ew_7ToTpCA&s=09" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-              </svg>
-              @alejandrxo_fe
-            </a>
-          </div>
-          
-          {/* Comments Section */}
-          <div className="mt-12">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">Comentarios</h3>
-            
-            {/* Comment Form */}
-            <form onSubmit={handleSubmitComment} className="mb-10 p-6 bg-gray-50 rounded-lg border border-gray-200">
-              <h4 className="text-lg font-semibold text-gray-800 mb-4">Deja tu comentario</h4>
-              <div className="mb-4">
-                <label htmlFor="author" className="block text-gray-700 mb-2">Nombre</label>
-                <input
-                  type="text"
-                  id="author"
-                  name="author"
-                  value={newComment.author}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                  placeholder="Tu nombre"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label htmlFor="content" className="block text-gray-700 mb-2">Comentario</label>
-                <textarea
-                  id="content"
-                  name="content"
-                  value={newComment.content}
-                  onChange={handleInputChange}
-                  rows={4}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                  placeholder="Escribe tu comentario aquí..."
-                  required
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
-              >
-                Publicar comentario
-              </button>
-            </form>
-            
-            {/* Comments List */}
-            <div className="space-y-6">
-              {comments.length === 0 ? (
-                <p className="text-gray-500 text-center py-8">Aún no hay comentarios. ¡Sé el primero en comentar!</p>
-              ) : (
-                comments.map(comment => (
-                  <div key={comment.id} className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
-                    <div className="flex items-start justify-between mb-3">
-                      <h4 className="text-lg font-semibold text-indigo-700">{comment.author}</h4>
-                      <span className="text-sm text-gray-500">{comment.date}</span>
-                    </div>
-                    <p className="text-gray-700">{comment.content}</p>
-                  </div>
-                ))
-              )}
-            </div>
-          </div>
-        </main>
-        
-        {/* Footer */}
-        <footer className="bg-gray-800 text-white p-6 text-center">
-          <p>
-            © 2025 Mi Blog Académico. Todos los derechos reservados. 
-            Sígueme en X (Twitter):{' '}
-            <a 
-              href="https://x.com/alejandrxo_fe?t=X9Zc6AI7fpQ3Ew_7ToTpCA&s=09" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-indigo-300 hover:text-indigo-100 underline"
-            >
-              @alejandrxo_fe
-            </a>
-          </p>
-        </footer>
+      {/* Contact Section */}
+      <div className="mt-12 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-indigo-200">
+        <h3 className="text-xl font-semibold text-indigo-700 mb-4">Contacto</h3>
+        <p className="text-gray-700 mb-4">¿Quieres ponerte en contacto? Sígueme en X (Twitter):</p>
+        <a 
+          href="https://x.com/alejandrxo_fe?t=X9Zc6AI7fpQ3Ew_7ToTpCA&s=09" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="inline-flex items-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+          @alejandrxo_fe
+        </a>
       </div>
-    </div>
-  );
-};
-
-export default BlogPage;
+      
+      {/* Comments Section */}
+      <div className="mt-12">
+        <h3 className="text-2xl font-bold text-gray-800 mb-6">Comentarios</h3>
+        
+        {/* Comment Form */}
+        <form onSubmit={handleSubmitComment} className="mb-10 p-6 bg-gray-50 rounded-lg border border-gray-200">
+          <h4 className="text-lg font-semibold text-gray-800 mb-4">Deja tu comentario</h4>
+          <div className="mb-4">
+            <label htmlFor="author" className="block text-gray-700 mb-2">Nombre</label>
+            <input
+              type="text"
+              id="author"
+              name="author"
+              value={newComment.author}
+              onChange={handleInputChange}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              placeholder="Tu nombre"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label htmlFor="content" className="block text-gray-700 mb-2">Comentario</label>
+            <textarea
+              id="content"
+              name="content"
+              value={newComment.content}
+              onChange={handleInputChange}
+              rows={4}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              placeholder="Escribe tu comentario aquí..."
+              required
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+          >
+            Publicar comentario
+          </button>
+        </form>
+        
+        {/* Comments List */}
+        <div className="space-y-6">
+          {comments.length === 0 ? (
+            <p className="text-gray-500 text-center py-8">Aún no hay comentarios. ¡Sé el primero en comentar!</p>
+          ) : (
+            comments.map(comment => (
+              <div key={comment.id} className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm">
+                <div className="flex items-start justify-between mb-3">
+                  <h4 className="text-lg font-semibold text-indigo-700">{comment.author}</h4>
+                  <span className="text-sm text-gray-500">{comment.date}</span>
+                </div>
+                <p className="text-gray-700">{comment.content}</p>
+              </div>
+            ))
+          )}
+        </div>
+      </div>
+    </main>
+    
+    {/* Footer */}
+    <footer className="bg-gray-800 text-white p-6 text-center">
+      <p>
+        © 2025 Mi Blog Académico. Todos los derechos reservados. 
+        Sígueme en X (Twitter):{' '}
+        <a 
+          href="https://x.com/alejandrxo_fe?t=X9Zc6AI7fpQ3Ew_7ToTpCA&s=09" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-indigo-300 hover:text-indigo-100 underline"
+        >
+          @alejandrxo_fe
+        </a>
+      </p>
+    </footer>
+  </div>
+</div>
